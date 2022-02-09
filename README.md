@@ -1,4 +1,4 @@
-# Fake News Detection using Hierarchical Convolutional Attention Network
+## Fake News Detection using Hierarchical Convolutional Attention Network
 
 This project was carried out as a part of the Natural Language Processing - NLP (CSE556) course, at **IIIT Delhi**. 
 
@@ -105,5 +105,5 @@ RoBERTa. This can be related back to our starting motivation to model
 more important parts of a news piece to make the prediction. Our
 motivations are supported by the experimental results.
 
-
-
+## Credits
+This project was done as a part of the **NLP (CSE556) 2021 course project at IIITD**. Kindly drop issues if you have trouble running codes. 
