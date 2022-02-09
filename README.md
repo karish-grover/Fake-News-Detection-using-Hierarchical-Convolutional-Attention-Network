@@ -6,6 +6,7 @@ In today’s digital era, social media platforms’ popularity has increased exp
 ## Dataset and Preprocessing
 We use the Kaggle [Fake news detection dataset](https://www.kaggle.com/c/fake-news/data) for our task. There are three attributes in the dataset, `author`, `title`, and `text`. We concatenate all the three features in order to make the final predictions. This is because the credibility of an author plays a very crucial role in determining the reliability of a news piece. Further, many times a news title has a particular writing style or phrases, and by detecting such patterns one can be more certain about a news article. Next, we remove the stop words and punctuations to further process our dataset. All the experiments are performed on a `80:20` train-test split.
 
+You can also download the dataset from this [link](https://drive.google.com/drive/folders/1p2W-fU9D_HR1CHU1QI4ecQDgrRH_jfki?usp=sharing).
 
 ## Baselines
 We evaluate the dataset collected on several baselines, as listed in the table below. We evaluate the performance of these baselines using F1 score, Recall, and Precision. The implementation of these baselines has been released. We implement three types of baseline models, Simple Linear Classification Models, Deep Neural Network Models, and Pretrained Language Models. All the baselines have been implemented in the notebooks:- [BERT-RoBERTa.ipynb](BERT-RoBERTa.ipynb), [LR-MNB-DT.ipynb](LR-MNB-DT.ipynb), and [NN_Baselines.ipynb](NN_Baselines.ipynb).
