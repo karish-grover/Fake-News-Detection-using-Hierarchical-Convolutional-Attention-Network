@@ -11,7 +11,7 @@ We use the Kaggle [Fake news detection dataset](https://www.kaggle.com/c/fake-ne
 
 
 # Baselines
-We evaluate the dataset collected on several baselines, as listed in the table below. We evaluate the performance of these baselines using F1 score, Recall, and Precision. The implementation of these baselines has been released. We implement three types of baseline models, Simple Linear Classification Models, Deep Neural Network Models, and Pretrained Language Models.
+We evaluate the dataset collected on several baselines, as listed in the table below. We evaluate the performance of these baselines using F1 score, Recall, and Precision. The implementation of these baselines has been released. We implement three types of baseline models, Simple Linear Classification Models, Deep Neural Network Models, and Pretrained Language Models. All the baselines have been implemented in the notebooks:- [BERT-RoBERTa.ipynb](BERT-RoBERTa.ipynb), [LR-MNB-DT.ipynb](LR-MNB-DT.ipynb), and [NN_Baselines.ipynb](NN_Baselines.ipynb).
 
 
 - **LR** (Logistic Regression), **DT** (Decision Trees), and **RF** (Random Forest). Trained using TFIDF vectors of the input text. 
@@ -20,7 +20,7 @@ We evaluate the dataset collected on several baselines, as listed in the table b
 - **RCNN** (Recurrent Convolutional Neural Networks). Uses Bidirectional GRU to encode the Glove embeddings of the tokens, 1D Convolutional layer, followed by a max pooling and dropout layer. 
 - **BERT** (Bidirectional Encoder Representations from Transformers), **RoBERTa** (Robustly Optimized BERT Pretraining Approach). Huggingface implementation of the `bert-base-cased` and `roberta-base` model finetuned using the `AdamW` optimizer, with a batch size of 8 for 3 epochs on `NVIDIA Tesla V100 GPU`.
 
-More details about these baselines are mentioned in the [paper]().
+More details about these baselines are mentioned in the [paper](NLP_Project.pdf).
 <center>
 <table align="center">
 <tr><td>
@@ -93,7 +93,4 @@ even the state-of-the-art pretrained language models like BERT and
 RoBERTa. This can be related back to our starting motivation to model
 more important parts of a news piece to make the prediction. Our
 motivations are supported by the experimental results.
-
-# Running Code files
-
 
