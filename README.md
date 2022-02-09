@@ -1,9 +1,13 @@
 # Fake News Detection using Hierarchical Convolutional Attention Network
 
-This project was carried out as a part of the Natural Language Processing - NLP (CSE556) course project, at IIIT Delhi. 
+This project was carried out as a part of the Natural Language Processing - NLP (CSE556) course, at **IIIT Delhi**. 
 
 # Abstract
 In today’s digital era, social media platforms’ popularity has increased exponentially, lead- ing to an increase in the amount of unreliable information online. Verifying the integrity of a particular piece of news is not easy for any end-user. In this paper, our end goal is to design an efficient model to examine the reliability of a news piece. This paper addresses the problem of Fake News classification, given only the news piece content and the author name. We present, **Hierarchical Convolutional-Attention Network (HCAN)** composed of attention-enhanced word-level and sentence-level encoders and a CNN to capture the sequential correlation. Extensive experiments show that HCAN outperforms the state-of-the-art baselines models on a Kaggle dataset. 
+
+
+# Dataset and Preprocessing
+We use the Kaggle [Fake news detection dataset](https://www.kaggle.com/c/fake-news/data) for our task. There are three attributes in the dataset, `author`, `title`, and `text`. We concatenate all the three features in order to make the final predictions. This is because the credibility of an author plays a very crucial role in determining the reliability of a news piece. Further, many times a news title has a particular writing style or phrases, and by detecting such patterns one can be more certain about a news article. Next, we remove the stop words and punctuations to further process our dataset. All the experiments are performed on a `80:20` train-test split.
 
 
 # Baselines
@@ -14,7 +18,7 @@ We evaluate the dataset collected on several baselines, as listed in the table b
 - **CNN** (Convolutional Neural Networks). 1D Convolutional layer with kernel size 3, followed by max pooling and a fully connected Dense layer. All deep neural models have been trained for a maximum input length of 70.
 - **RNN** (Recurrent Neural Networks), **LSTM** (Long Short Term Memory cells), **GRU** (Gated Recurrent Networks), **Bi-RNN** (Bi-directional Re-current Neural Networks). Respective RNN followed by dropout and fully connected layers.
 - **RCNN** (Recurrent Convolutional Neural Networks). Uses Bidirectional GRU to encode the Glove embeddings of the tokens, 1D Convolutional layer, followed by a max pooling and dropout layer. 
-- **BERT** (Bidirectional Encoder Representations from Transformers), **RoBERTa** (Robustly Optimized BERT Pretraining Approach). Huggingface implementation of the **bert-base-cased** and **roberta-base** model finetuned using the **AdamW** optimizer, with a batch size of 8 for 3 epochs on NVIDIA Tesla V100 GPU.
+- **BERT** (Bidirectional Encoder Representations from Transformers), **RoBERTa** (Robustly Optimized BERT Pretraining Approach). Huggingface implementation of the `bert-base-cased` and `roberta-base` model finetuned using the `AdamW` optimizer, with a batch size of 8 for 3 epochs on `NVIDIA Tesla V100 GPU`.
 
 More details about these baselines are mentioned in the [paper]().
 <center>
@@ -56,6 +60,40 @@ More details about these baselines are mentioned in the [paper]().
 | HCAN *w/o* CNN        |   0.9877    |   0.9605    |   0.9739   |
 | HCAN *w/* UniGRU      |   0.9632    |   0.9869    |   0.9749   |
 | **HCAN (Ours)**       | **0.9891**  | **0.9835**  | **0.9863** |
-
 </td></tr> </table>
 </center>
+
+
+Results and Analysis
+====================
+
+It can be seen from the table that our system HCAN outperforms all the
+baseline models by a decent margin and gets an F1 score of **0.9856**.
+We further analyse the effect of the Convolutional layer and the
+hierarchical sentence encoder on the model performance. It can be seen
+that on removing the hierarchy i.e. by considering only the word-level
+encoder i.e. an attention enhanced bi-directional network, the accuracy
+degrades the most. Further, removing the CNN layer from the model also
+leads to poor performance. 
+
+
+<center>
+<table align="center">
+<tr><td>
+<img width="410" alt="graph" src="https://user-images.githubusercontent.com/64140048/153190777-b494d7cc-90ef-491c-9fc3-9b6156a67046.png"> 
+</td><td>
+<img width="410" alt="max_len_graph" src="https://user-images.githubusercontent.com/64140048/153190790-7ab06e0f-6097-42f2-87fe-6df142f1e25f.png">
+</td></tr> </table>
+</center>
+
+We also analyse the effect of the CNN kernel size and word-encoder max-lengths on the testing and training accuracies.
+  
+The hierarchical structure of our model, enhanced by a CNN, outperforms
+even the state-of-the-art pretrained language models like BERT and
+RoBERTa. This can be related back to our starting motivation to model
+more important parts of a news piece to make the prediction. Our
+motivations are supported by the experimental results.
+
+# Running Code files
+
+
