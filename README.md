@@ -20,10 +20,8 @@ We evaluate the dataset collected on several baselines, as listed in the table b
 - **RCNN** (Recurrent Convolutional Neural Networks). Uses Bidirectional GRU to encode the Glove embeddings of the tokens, 1D Convolutional layer, followed by a max pooling and dropout layer. 
 - **BERT** (Bidirectional Encoder Representations from Transformers), **RoBERTa** (Robustly Optimized BERT Pretraining Approach). Huggingface implementation of the `bert-base-cased` and `roberta-base` model finetuned using the `AdamW` optimizer, with a batch size of 8 for 3 epochs on `NVIDIA Tesla V100 GPU`.
 
-
 More details about these baselines are mentioned in the [paper](NLP_Project.pdf).
 <center>
-<font size = "10px">
  <table align="center">
 <tr><td>
 
@@ -64,8 +62,8 @@ More details about these baselines are mentioned in the [paper](NLP_Project.pdf)
 | **HCAN (Ours)**       | **0.9891**  | **0.9835**  | **0.9863** |
 </td></tr> </table>
 </center>
-</font>
-
+ 
+ 
 ## Model Architecture
 
 The model architecture developed has been shown in the following figure:
