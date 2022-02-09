@@ -67,10 +67,13 @@ More details about these baselines are mentioned in the [paper](NLP_Project.pdf)
 # Model Architecture
 
 The model architecture developed has been shown in the following figure:
+
 <p align="center">
   <img align = "center" width="491" alt="Screenshot 2022-02-09 at 5 12 15 PM" src="https://user-images.githubusercontent.com/64140048/153193237-e06228d3-6507-4217-86d5-506a50078f7d.png">
 </p>
+
 The notebook [HCAN.ipynb](HCAN.ipynb) contains the model implementation. 
+
 
 
 # Results and Analysis
